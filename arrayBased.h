@@ -14,5 +14,20 @@ struct City
 	double longitude;
 };
 
+class arrayBased
+{
+	private:
+		City* records;
+	
+	public:
+		void insert();
+		void searchName(string);
+		void searchCoordinate(double, double);
+		void deleteName(string);
+		void deleteCoordinate(double, double);
+		void printDistance(string, double);
+		void printAll();
+};
+
 #endif
 
