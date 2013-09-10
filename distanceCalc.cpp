@@ -6,6 +6,9 @@
 
 using namespace std;
 
+arrayBased arrayImp;
+listBased listImp;
+
 bool displayPrompt();
 
 int main()
@@ -54,11 +57,77 @@ void displayPrompt()
 	}
 	else if(toupper(operOp) == 'A')
 	{
-		
+		//Go to the appropriate function withing the array implementation
+		switch(impOp)
+		{
+			case 1:
+				//Insert a record
+				
+				break;
+			case 2:
+				//Search for a record by name
+				
+				break;
+			case 3:
+				//Search for a record by coordinate
+				
+				break;
+			case 4:
+				//Delete a record by name
+				
+				break;
+			case 5:
+				//Delete a record by coordinate
+				
+				break;
+			case 6:
+				//Print records within a given distance of a specified location
+				
+				break;
+			case 7:
+				//Print all records
+				
+				break;
+			default:
+				cout << "Invalid Input\n Please try again\n\n";
+		}
 	}
 	else if(toupper(operOp) == 'B')
 	{
-		
+		//Go to the appropriate function withing the list implementation
+		switch(impOp)
+		{
+			case 1:
+				//Insert a record
+				
+				break;
+			case 2:
+				//Search for a record by name
+				
+				break;
+			case 3:
+				//Search for a record by coordinate
+				
+				break;
+			case 4:
+				//Delete a record by name
+				
+				break;
+			case 5:
+				//Delete a record by coordinate
+				
+				break;
+			case 6:
+				//Print records within a given distance of a specified location
+				
+				break;
+			case 7:
+				//Print all records
+				
+				break;
+			default:
+				cout << "Invalid Input\n Please try again\n\n";
+		}
 	}
 	else
 	{
