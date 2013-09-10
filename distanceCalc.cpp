@@ -22,7 +22,9 @@ int main()
 
 void displayPrompt()
 {
-	//Display basic Prompt
+	int impOp;
+	char operOp;
+	//Display initial Prompt
 	cout << "*************************************" << endl
 		<< "Implementation Options:" << endl
 		<< "A.Use an array-based list implementation" << endl
@@ -35,6 +37,12 @@ void displayPrompt()
 		<< "5. Delete a record by coordinate" << endl
 		<< "6. Print records within a given distance of a specified location" << endl
 		<< "7. Print all records" << endl
-		<< "8. Exit" << endl;	
+		<< "8. Exit" << endl;
+	
+	//Request input
+	cout << "Enter your implemenation option:";
+	cin >> impOp;
+	cout << "Enter your operation option:";
+	cin >> operOp;
 }
 
