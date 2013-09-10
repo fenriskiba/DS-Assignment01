@@ -59,34 +59,34 @@ void displayPrompt()
 	{
 		//Go to the appropriate function withing the array implementation
 		switch(impOp)
-		{
+		{		
 			case 1:
 				//Insert a record
-				
+				arrayImp.insert();
 				break;
 			case 2:
 				//Search for a record by name
-				
+				arrayImp.searchName();
 				break;
 			case 3:
 				//Search for a record by coordinate
-				
+				arrayImp.seachCoordinate();
 				break;
 			case 4:
 				//Delete a record by name
-				
+				arrayImp.deleteName();
 				break;
 			case 5:
 				//Delete a record by coordinate
-				
+				arrayImp.deleteCoordinate();
 				break;
 			case 6:
 				//Print records within a given distance of a specified location
-				
+				arrayImp.printDistance();
 				break;
 			case 7:
 				//Print all records
-				
+				arrayImp.printAll();
 				break;
 			default:
 				cout << "Invalid Input\n Please try again\n\n";
@@ -99,31 +99,31 @@ void displayPrompt()
 		{
 			case 1:
 				//Insert a record
-				
+				listImp.insert();
 				break;
 			case 2:
 				//Search for a record by name
-				
+				listImp.searchName();
 				break;
 			case 3:
 				//Search for a record by coordinate
-				
+				listImp.searchCoordinate();
 				break;
 			case 4:
 				//Delete a record by name
-				
+				listImp.deleteName();
 				break;
 			case 5:
 				//Delete a record by coordinate
-				
+				listImp.deleteCoordinate();
 				break;
 			case 6:
 				//Print records within a given distance of a specified location
-				
+				listImp.printDistance();
 				break;
 			case 7:
 				//Print all records
-				
+				listImp.printAll();
 				break;
 			default:
 				cout << "Invalid Input\n Please try again\n\n";
