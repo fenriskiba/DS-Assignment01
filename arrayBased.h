@@ -21,11 +21,11 @@ class arrayBased
 	
 	public:
 		void insert();
-		void searchName(string);
-		void searchCoordinate(double, double);
-		void deleteName(string);
-		void deleteCoordinate(double, double);
-		void printDistance(string, double);
+		void searchName();
+		void searchCoordinate();
+		void deleteName();
+		void deleteCoordinate();
+		void printDistance();
 		void printAll();
 };
 
