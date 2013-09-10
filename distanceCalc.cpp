@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void displayPrompt();
+bool displayPrompt();
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
 	
 	while(running)
 	{
-		displayPrompt();
+		running = displayPrompt();
 	}
 
 	return 0;
@@ -24,6 +24,7 @@ void displayPrompt()
 {
 	int impOp;
 	char operOp;
+	
 	//Display initial Prompt
 	cout << "*************************************" << endl
 		<< "Implementation Options:" << endl
@@ -37,12 +38,33 @@ void displayPrompt()
 		<< "5. Delete a record by coordinate" << endl
 		<< "6. Print records within a given distance of a specified location" << endl
 		<< "7. Print all records" << endl
-		<< "8. Exit" << endl;
+		<< "8. Exit" << endl << endl;
 	
 	//Request input
 	cout << "Enter your implemenation option:";
 	cin >> impOp;
 	cout << "Enter your operation option:";
 	cin >> operOp;
+	cout << endl;
+	
+	//Exit if necessary
+	if(impOp == 8)
+	{
+		return false;
+	}
+	else if(toupper(operOp) == 'A')
+	{
+		
+	}
+	else if(toupper(operOp) == 'B')
+	{
+		
+	}
+	else
+	{
+		cout << "Invalid Input\n Please try again\n\n";
+	}
+	
+	return true;
 }
 
