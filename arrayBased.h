@@ -110,7 +110,33 @@ class arrayBased
 		
 		void searchCoordinate()
 		{
-		
+			double lat;
+			double lon;
+			bool there = false;
+			
+			//Find out the coordinates of the location they are looking for
+			cout << "Enter name of the latitude to be searched: ";
+			cin >> lat;
+			cout << "Enter name of the longitude to be searched: ";
+			cin >> lon;
+			cout << endl;
+			
+			for(int index = 0; index < len && !there; index++)
+			{
+				//If its in the list print its coordinates
+				if(lat == records[index].latitude && lon == records[index].longitude)
+				{
+					there = true;
+					cout << records[index].name << ", ("
+						<< records[index].latitude << ","
+						<< records[index].longitude << ")" << endl << endl;
+				}	
+			}
+			
+			if(!there)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
 		}
 		
 		void deleteName()
