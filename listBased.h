@@ -7,21 +7,21 @@
 
 using namespace std;
 
-struct City
+struct CityList
 {
 	string name;
 	double latitude;
 	double longitude;
-	City* next;
+	CityList* next;
 };
 
 class listBased
 {
 	private:
-		City head;
+		CityList head;
 	
 	public:
-		City()
+		listBased()
 		{
 			head.next = NULL;
 		}
