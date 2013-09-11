@@ -23,10 +23,10 @@ int main()
 	return 0;
 }
 
-void displayPrompt()
+bool displayPrompt()
 {
-	int impOp;
-	char operOp;
+	char impOp;
+	int operOp;
 	
 	//Display initial Prompt
 	cout << "*************************************" << endl
@@ -51,14 +51,14 @@ void displayPrompt()
 	cout << endl;
 	
 	//Exit if necessary
-	if(impOp == 8)
+	if(operOp == 8)
 	{
 		return false;
 	}
-	else if(toupper(operOp) == 'A')
+	else if(toupper(impOp) == 'A')
 	{
 		//Go to the appropriate function withing the array implementation
-		switch(impOp)
+		switch(operOp)
 		{		
 			case 1:
 				//Insert a record
@@ -70,7 +70,7 @@ void displayPrompt()
 				break;
 			case 3:
 				//Search for a record by coordinate
-				arrayImp.seachCoordinate();
+				arrayImp.searchCoordinate();
 				break;
 			case 4:
 				//Delete a record by name
@@ -92,10 +92,10 @@ void displayPrompt()
 				cout << "Invalid Input\n Please try again\n\n";
 		}
 	}
-	else if(toupper(operOp) == 'B')
+	else if(toupper(impOp) == 'B')
 	{
 		//Go to the appropriate function withing the list implementation
-		switch(impOp)
+		switch(operOp)
 		{
 			case 1:
 				//Insert a record

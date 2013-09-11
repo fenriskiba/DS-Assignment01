@@ -20,13 +20,40 @@ class arrayBased
 		City* records;
 	
 	public:
-		void insert();
-		void searchName();
-		void searchCoordinate();
-		void deleteName();
-		void deleteCoordinate();
-		void printDistance();
-		void printAll();
+		void insert()
+		{
+		
+		}
+		
+		void searchName()
+		{
+		
+		}
+		
+		void searchCoordinate()
+		{
+		
+		}
+		
+		void deleteName()
+		{
+		
+		}
+		
+		void deleteCoordinate()
+		{
+		
+		}
+		
+		void printDistance()
+		{
+		
+		}
+		
+		void printAll()
+		{
+		
+		}
 };
 
 #endif
