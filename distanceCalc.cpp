@@ -89,7 +89,7 @@ bool displayPrompt()
 				arrayImp.printAll();
 				break;
 			default:
-				cout << "Invalid Input\n Please try again\n\n";
+				cout << "Invalid Input\nPlease try again\n\n";
 		}
 	}
 	else if(toupper(impOp) == 'B')
@@ -126,12 +126,12 @@ bool displayPrompt()
 				listImp.printAll();
 				break;
 			default:
-				cout << "Invalid Input\n Please try again\n\n";
+				cout << "Invalid Input\nPlease try again\n\n";
 		}
 	}
 	else
 	{
-		cout << "Invalid Input\n Please try again\n\n";
+		cout << "Invalid Input\nPlease try again\n\n";
 	}
 	
 	return true;
