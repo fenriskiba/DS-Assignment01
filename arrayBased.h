@@ -118,7 +118,7 @@ class arrayBased
 			
 			for(int index = 0; index < len && !there; index++)
 			{
-				//If its in the list print its coordinates
+				//If it's in the list print its coordinates
 				if(lat == records[index].latitude && lon == records[index].longitude)
 				{
 					there = true;
@@ -161,6 +161,7 @@ class arrayBased
 			}
 			else
 			{
+				//Delete the location from records
 				len--;
 				int newIndex = 0;
 				City* temp = new City[len];
@@ -183,7 +184,52 @@ class arrayBased
 		
 		void deleteCoordinate()
 		{
-		
+			double delLat;
+			double delLon;
+			int delIndex;
+			bool there = false;
+			
+			//Find out the coordinates of the location to be deleted
+			cout << "Enter latitude of the city to be deleted:";
+			cin >> delLat;
+			cout << "Enter longitude of the city to be deleted:";
+			cin >> delLon;
+			cout << endl;
+			
+			for(int index = 0; index < len && !there; index++)
+			{
+				//If its in the list mark it for deletion
+				if(delLat == records[index].latitude && delLon == records[index].longitude)
+				{
+					there = true;
+					delIndex = index;
+				}	
+			}
+			
+			if(!there)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
+			else
+			{
+				len--;
+				int newIndex = 0;
+				City* temp = new City[len];
+				
+				for(int index = 0; index < (len + 1); index++)
+				{
+					if(index != delIndex)
+					{
+						temp[newIndex] = records[index];
+						newIndex++;
+					}
+				}
+				
+				delete [] records;
+				records = temp;
+				
+				cout << "Deleted successfully." << endl << endl;
+			}
 		}
 		
 		void printDistance()
