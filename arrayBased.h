@@ -19,17 +19,6 @@ class arrayBased
 	private:
 		City* records;
 		int len;
-		
-		bool alreadyThere(string checkName)
-		{
-			for(int index = 0; index < len; index++)
-			{
-				if(checkName == records[index].name)
-					return true;
-			}
-			
-			return false;
-		}
 	
 	public:
 		arrayBased()
@@ -42,6 +31,7 @@ class arrayBased
 			string newName;
 			double lat;
 			double lon;
+			bool there = false;
 			
 			//Collect values
 			cout << "Enter name of the city: ";
@@ -52,7 +42,12 @@ class arrayBased
 			cin >> lon;
 			
 			//Check if the location is already there
-			bool there = alreadyThere(newName);
+			for(int index = 0; index < len; index++)
+			{
+				if(newName == records[index].name)
+					there =  true;
+			}			
+			
 			if(there)
 			{
 				cout << endl << "No need to insert again, "
@@ -141,7 +136,7 @@ class arrayBased
 		
 		void deleteName()
 		{
-		
+			
 		}
 		
 		void deleteCoordinate()
