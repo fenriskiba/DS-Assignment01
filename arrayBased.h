@@ -19,6 +19,14 @@ class arrayBased
 	private:
 		City* records;
 		int len;
+		
+		double getDistance(City one, City two)
+		{
+			//ARCCOS[ SIN(LAT1)*SIN(LAT2) + COS(LAT1)*COS(LAT2)*COS(LONG2-LONG1) ]
+			double result = acos( sin(one.latitude) * sin(two.latitude) +
+									cos(one.latitude) * cos(two.latitude) * 
+									cos(two.longitude - one.longitude) ) *	3963.191;
+		}
 	
 	public:
 		arrayBased()
@@ -234,7 +242,47 @@ class arrayBased
 		
 		void printDistance()
 		{
-		
+			bool there = false;
+			string location;
+			int locIndex;
+			double distance;
+			
+			//Find the name of the location and the distance from it
+			cout << "Enter name of the specified location:";
+			cin >> location;
+			cout << "Enter distance:";
+			cin >> distance;
+			cout << endl;
+			
+			//Find the index of the location
+			for(int index = 0; index < len && !there; index++)
+			{
+				//If its in the list mark it
+				if(location == records[index].name)
+				{
+					there = true;
+					locIndex = index;
+				}	
+			}
+			
+			if(there)
+			{
+				//Print all the locations within a certain distance
+				for(int index= 0; index < len; index++)
+				{
+					if(index != locIndex && 
+						getDistance(records[locIndex], records[index]) <= distance)
+					{
+						cout << records[index].name << ", ("
+							<< records[index].latitude << ","
+							<< records[index].longitude << ")" << endl << endl;
+					}
+				}
+			}
+			else
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
 		}
 		
 		void printAll()
