@@ -239,7 +239,13 @@ class arrayBased
 		
 		void printAll()
 		{
-		
+			//Print all the locations
+			for(int index= 0; index < len; index++)
+			{
+				cout << records[index].name << ", ("
+					<< records[index].latitude << ","
+					<< records[index].longitude << ")" << endl << endl;
+			}
 		}
 };
 
