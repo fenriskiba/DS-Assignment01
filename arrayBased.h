@@ -34,11 +34,11 @@ class arrayBased
 			bool there = false;
 			
 			//Collect values
-			cout << "Enter name of the city: ";
+			cout << "Enter name of the city:";
 			cin >> newName;
-			cout << "Enter x coordinate of the city: ";
+			cout << "Enter x coordinate of the city:";
 			cin >> lat;
-			cout << "Enter y coordinate of the city: ";
+			cout << "Enter y coordinate of the city:";
 			cin >> lon;
 			
 			//Check if the location is already there
@@ -81,7 +81,7 @@ class arrayBased
 			bool there = false;
 			
 			//Find out the name of the location they are looking for
-			cout << "Enter name of the city to be searched: ";
+			cout << "Enter name of the city to be searched:";
 			cin >> checkName;
 			cout << endl;
 			
@@ -110,9 +110,9 @@ class arrayBased
 			bool there = false;
 			
 			//Find out the coordinates of the location they are looking for
-			cout << "Enter name of the latitude to be searched: ";
+			cout << "Enter name of the latitude to be searched:";
 			cin >> lat;
-			cout << "Enter name of the longitude to be searched: ";
+			cout << "Enter name of the longitude to be searched:";
 			cin >> lon;
 			cout << endl;
 			
@@ -136,7 +136,49 @@ class arrayBased
 		
 		void deleteName()
 		{
+			string delName;
+			int delIndex;
+			bool there = false;
 			
+			//Find out the name of the location to be deleted
+			cout << "Enter name of the city to be deleted:";
+			cin >> delName;
+			cout << endl;
+			
+			for(int index = 0; index < len && !there; index++)
+			{
+				//If its in the list mark it for deletion
+				if(delName == records[index].name)
+				{
+					there = true;
+					delIndex = index;
+				}	
+			}
+			
+			if(!there)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
+			else
+			{
+				len--;
+				int newIndex = 0;
+				City* temp = new City[len];
+				
+				for(int index = 0; index < (len + 1); index++)
+				{
+					if(index != delIndex)
+					{
+						temp[newIndex] = records[index];
+						newIndex++;
+					}
+				}
+				
+				delete [] records;
+				records = temp;
+				
+				cout << "Deleted successfully." << endl << endl;
+			}
 		}
 		
 		void deleteCoordinate()
