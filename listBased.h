@@ -161,7 +161,17 @@ class listBased
 		
 		void printAll()
 		{
-		
+			CityList* check = head;
+			
+			//Print all values in the list
+			while(check != NULL)
+			{
+				cout << check->name << ", ("
+					<< check->latitude << ","
+					<< check->longitude << ")" << endl << endl;
+				
+				check = check->next;
+			}
 		}
 };
 
