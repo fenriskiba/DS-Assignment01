@@ -19,6 +19,15 @@ class listBased
 {
 	private:
 		CityList head;
+		
+		double getDistance(CityList one, CityList two)
+		{
+			//Return the distance between the two locations
+			double result = acos( sin(one.latitude) * sin(two.latitude) +
+									cos(one.latitude) * cos(two.latitude) * 
+									cos(two.longitude - one.longitude) ) *	3963.191;
+			return abs(result);
+		}
 	
 	public:
 		listBased()
