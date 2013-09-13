@@ -156,7 +156,51 @@ class listBased
 		
 		void printDistance()
 		{
-		
+			bool there = false;
+			string location;
+			double distance;
+			CityList* check = head;
+			CityList* center;
+
+			//Find the name of the location and the distance from it
+			cout << "Enter name of the specified location:";
+			cin >> location;
+			cout << "Enter distance:";
+			cin >> distance;
+			cout << endl;
+			
+			//Find the location and mark it
+			while(check != NULL && !there)
+			{
+				if(check->name == location)
+				{
+					there = true;
+					center = check;
+				}
+				check = check->next;
+			}
+			
+			//Print all location within the given distance
+			if(there)
+			{
+				check = head;
+				
+				while(check != NULL)
+				{
+					if(check != center &&
+						getDistance(*center, *check) <= distance)
+					{
+						cout << check->name << ", ("
+							<< check->latitude << ","
+							<< check->longitude << ")" << endl << endl;
+					}
+					check = check->next;
+				}
+			}
+			else
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
 		}
 		
 		void printAll()
