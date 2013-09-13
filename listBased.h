@@ -111,7 +111,37 @@ class listBased
 		
 		void searchCoordinate()
 		{
-		
+			double lat;
+			double lon;
+			bool there = false;
+
+			//Find out the coordinates of the location they are looking for
+			cout << "Enter name of the latitude to be searched:";
+			cin >> lat;
+			cout << "Enter name of the longitude to be searched:";
+			cin >> lon;
+			cout << endl;
+			
+			//Check to see if the list is there
+			CityList* check = head;
+			while(check != NULL && !there)
+			{
+				if(check->latitude == lat && check->longitude == lon)
+				{
+					//If the location is there, print its coordinates
+					there = true;
+					cout << check->name << ", ("
+						<< check->latitude << ","
+						<< check->longitude << ")" << endl << endl;
+				}
+				
+				check = check->next;
+			}
+			
+			if(!there)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
 		}
 		
 		void deleteName()
