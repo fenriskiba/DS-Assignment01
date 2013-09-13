@@ -79,7 +79,34 @@ class listBased
 		
 		void searchName()
 		{
-		
+			string checkName;
+			bool there = false;
+
+			//Find out the name of the location they are looking for
+			cout << "Enter name of the city to be searched:";
+			cin >> checkName;
+			cout << endl;
+			
+			//Check to see if the list is there
+			CityList* check = head;
+			while(check != NULL && !there)
+			{
+				if(check->name == checkName)
+				{
+					//If the location is there, print its coordinates
+					there = true;
+					cout << check->name << ", ("
+						<< check->latitude << ","
+						<< check->longitude << ")" << endl << endl;
+				}
+				
+				check = check->next;
+			}
+			
+			if(!there)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
 		}
 		
 		void searchCoordinate()
