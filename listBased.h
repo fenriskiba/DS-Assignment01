@@ -18,7 +18,7 @@ struct CityList
 class listBased
 {
 	private:
-		CityList head;
+		CityList* head;
 		
 		double getDistance(CityList one, CityList two)
 		{
@@ -32,12 +32,49 @@ class listBased
 	public:
 		listBased()
 		{
-			head.next = NULL;
+			head = NULL;
 		}
 		
 		void insert()
 		{
-		
+			string newName;
+			double lat;
+			double lon;
+			bool there = false;
+
+			//Collect values
+			cout << "Enter name of the city:";
+			cin >> newName;
+			cout << "Enter x coordinate of the city:";
+			cin >> lat;
+			cout << "Enter y coordinate of the city:";
+			cin >> lon;
+			
+			//Check if the city is already there
+			CityList* check = head;
+			while(check != NULL && !there)
+			{
+				if(check->name == newName)
+					there = true;
+				check = check->next;
+			}
+			
+			if(there)
+			{
+				cout << endl << "No need to insert again, "
+					<< "as this record exists in the existing data set." << endl;
+			}
+			else
+			{
+				//If the city isn't there yet put it at the top of the list
+				CityList* newCity = new CityList;
+				newCity->name = newName;
+				newCity->latitude = lat;
+				newCity->longitude = lon;
+				newCity->next = head;
+				head = newCity;
+				cout << "Record inserted successfully." << endl << endl;
+			}
 		}
 		
 		void searchName()
