@@ -22,10 +22,11 @@ class arrayBased
 		
 		double getDistance(City one, City two)
 		{
-			//ARCCOS[ SIN(LAT1)*SIN(LAT2) + COS(LAT1)*COS(LAT2)*COS(LONG2-LONG1) ]
+			//Return the distance between the two locations
 			double result = acos( sin(one.latitude) * sin(two.latitude) +
 									cos(one.latitude) * cos(two.latitude) * 
 									cos(two.longitude - one.longitude) ) *	3963.191;
+			return abs(result);
 		}
 	
 	public:
