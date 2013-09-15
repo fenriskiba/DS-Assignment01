@@ -193,7 +193,52 @@ class listBased
 		
 		void deleteCoordinate()
 		{
-		
+			double delLat;
+			double delLon;
+			bool there = false;
+			CityList* check = head;
+
+			//Find out the coordinates of the location to be deleted
+			cout << "Enter latitude of the city to be deleted:";
+			cin >> delLat;
+			cout << "Enter longitude of the city to be deleted:";
+			cin >> delLon;
+			cout << endl;
+			
+			if(head == NULL)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
+			else if(head->latitude == delLat && head->longitude == delLon)
+			{
+				head = head->next;
+				delete check;
+				there = true;
+				cout << "Deleted successfully." << endl << endl;
+			}
+			else
+			{
+				while(check->next != NULL && !there)
+				{
+					if((check->next)->latitude == delLat && (check->next)->longitude == delLon)
+					{
+						CityList* temp = check->next;	
+						check->next = temp->next;
+						delete temp;
+						there = true;
+						cout << "Deleted successfully." << endl << endl;
+					}
+					else
+					{
+						check = check->next;
+					}
+				}
+
+				if(!there)
+				{
+					cout << "No such record exists in the existing data set." << endl << endl;
+				}
+			}
 		}
 		
 		void printDistance()
