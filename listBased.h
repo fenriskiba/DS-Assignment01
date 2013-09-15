@@ -146,7 +146,49 @@ class listBased
 		
 		void deleteName()
 		{
-		
+			string delName;
+			bool there = false;
+			CityList* check = head;
+
+			//Find out the name of the location to be deleted
+			cout << "Enter name of the city to be deleted:";
+			cin >> delName;
+			cout << endl;
+
+			if(head == NULL)
+			{
+				cout << "No such record exists in the existing data set." << endl << endl;
+			}
+			else if(head->name == delName)
+			{
+				head = head->next;
+				delete check;
+				there = true;
+				cout << "Deleted successfully." << endl << endl;
+			}
+			else
+			{
+				while(check->next != NULL && !there)
+				{
+					if((check->next)->name == delName)
+					{
+						CityList* temp = check->next;	
+						check->next = temp->next;
+						delete temp;
+						there = true;
+						cout << "Deleted successfully." << endl << endl;
+					}
+					else
+					{
+						check = check->next;
+					}
+				}
+
+				if(!there)
+				{
+					cout << "No such record exists in the existing data set." << endl << endl;
+				}
+			}
 		}
 		
 		void deleteCoordinate()
