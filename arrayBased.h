@@ -22,10 +22,15 @@ class arrayBased
 		
 		double getDistance(City one, City two)
 		{
+			double oneLatRad = one.latitude * 3.14159265 / 180;
+			double oneLonRad = one.longitude * 3.14159265 / 180;
+			double twoLatRad = two.latitude * 3.14159265 / 180;
+			double twoLonRad = two.longitude * 3.14159265 / 180;
+		
 			//Return the distance between the two locations
-			double result = acos( sin(one.latitude) * sin(two.latitude) +
-									cos(one.latitude) * cos(two.latitude) * 
-									cos(two.longitude - one.longitude) ) *	3963.191;
+			double result = acos( sin(oneLatRad) * sin(twoLatRad) +
+									cos(oneLatRad) * cos(twoLatRad) * 
+									cos(twoLonRad - oneLonRad) ) *	3963.191;
 			return abs(result);
 		}
 	
